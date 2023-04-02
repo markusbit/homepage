@@ -1,0 +1,35 @@
+h2 {
+    text-transform: uppercase;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+}
+
+.col-md {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.submit {
+    padding: 10px;
+    margin-top: 10px;
+}
