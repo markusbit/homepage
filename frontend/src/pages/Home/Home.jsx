@@ -11,7 +11,7 @@ function Home(props) {
     const [showImageAnimation, setShowImageAnimation] = useState(false);
 
     const handleTypingComplete = () => {
-        localStorage.setItem('animationPlayed', true);
+        sessionStorage.setItem('animationPlayed', true);
         setShowImageAnimation(true);
     };
 
@@ -21,7 +21,7 @@ function Home(props) {
                 <div className="col-md-6 typewriter-container">
                     {!props.loading && (
                         <>
-                            {localStorage.getItem('animationPlayed') ? (
+                            {sessionStorage.getItem('animationPlayed') ? (
                                 <div>
                                     {title}
                                     {subtitle}
@@ -48,7 +48,7 @@ function Home(props) {
                 </div>
                 <div className="col-md-4">
                     {
-                        (localStorage.getItem('animationPlayed') && !showImageAnimation) && (
+                        (sessionStorage.getItem('animationPlayed') && !showImageAnimation) && (
                             <img
                                 className="img-fluid mx-auto rounded"
                                 src="https://via.placeholder.com/300"

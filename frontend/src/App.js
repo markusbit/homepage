@@ -22,6 +22,7 @@ import Footer from './components/Footer';
 
 import { useEffect } from 'react';
 import Preloader from './components/Preloader';
+import ScrollToTop from './components/ScrollToTop';
 
 export const ThemeContext = createContext(null);
 
@@ -54,13 +55,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      localStorage.removeItem('animationPlayed');
-    };
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.removeItem('animationPlayed')
+    });
   }, []);
 
   return (
@@ -68,6 +65,7 @@ function App() {
       <Preloader load={load} />
       <CustomParticles />
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home loading={load} />} />
         <Route path="/projects" element={<Projects />} />
