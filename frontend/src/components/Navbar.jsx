@@ -52,12 +52,6 @@ function CustomNavbar() {
                                 Contact
                             </Nav.Link>
                         </Nav.Item>
-                        <Nav.Item id='nav-item-blogs'>
-                            <Nav.Link as={Link} to="/blogs">
-                                <FontAwesomeIcon icon={faBook} />
-                                Blogs
-                            </Nav.Link>
-                        </Nav.Item>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

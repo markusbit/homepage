@@ -119,6 +119,15 @@
     padding: 10px;
 }
 
+/* ------ */
+/*  Card  */
+/* ------ */
+
+.custom-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 /* -------- */
 /*  Navbar  */
 /* -------- */

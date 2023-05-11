@@ -13,12 +13,28 @@ h1 {
     animation: forwards 1s fadein;
 }
 
+.fade-in-delayed {
+    animation: forwards 1s fadein;
+}
+
 @keyframes fadein {
     from {
         opacity: 0
     }
-
     to {
         opacity: 1
     }
+}
+
+.homepage-text {
+    max-width: 75%;
+}
+
+.homepage-list li {
+    list-style: none;
+    text-align: left;
+}
+
+.homepage-list {
+    margin: 2rem 0;
 }

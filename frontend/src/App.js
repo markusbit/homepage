@@ -13,7 +13,7 @@ import Home from './pages/Home/Home';
 
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
-import Projects from './pages/Projects';
+import Projects from './pages/Projects/Projects';
 import NoPage from './pages/NoPage';
 
 import CustomParticles from './components/Particles';
@@ -23,6 +23,7 @@ import Footer from './components/Footer';
 import { useEffect } from 'react';
 import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
+import Login from './pages/Login/Login';
 
 export const ThemeContext = createContext(null);
 
@@ -71,6 +72,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer quote={quote} />
