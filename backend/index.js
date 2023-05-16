@@ -6,7 +6,6 @@ connect();
 
 const authRouter = require('./routers/auth.router'); 
 const contactRouter = require('./routers/contact.router'); 
-const privateRouter = require('./routers/private.router'); 
 
 const app = express();
 app.use(express.json());
@@ -19,7 +18,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRouter); 
 app.use('/api/contact', contactRouter); 
-app.use('/api/private', privateRouter)
 
 const port = process.env.PORT;
 app.listen(port, () => {

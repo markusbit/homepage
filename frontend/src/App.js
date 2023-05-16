@@ -24,6 +24,8 @@ import { useEffect } from 'react';
 import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login/Login';
+import Contacts from './pages/Contacts/Contacts';
+import Messages from './pages/Messages/Messages';
 
 export const ThemeContext = createContext(null);
 
@@ -73,6 +75,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/messages" element={<Messages />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer quote={quote} />

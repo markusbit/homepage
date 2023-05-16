@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'); 
 
 // Creating Structure of the collection
-const messageShema = new mongoose.Schema({
+const contactShema = new mongoose.Schema({
     name: {
         type: String,
         require: true
@@ -15,16 +15,12 @@ const messageShema = new mongoose.Schema({
     email: {
         type: String,
         require: true
-    }, 
-    msg: {
-        type: String,
-        require: true
     }
 }, {
-    collection: 'messages'
+    collection: 'contacts'
 })
 
 // Creating collection
-const MessageModel = mongoose.model("Messages", messageShema); 
+const ContactModel = mongoose.model("Contact", contactShema); 
 
-module.exports = MessageModel; 
+module.exports = ContactModel; 

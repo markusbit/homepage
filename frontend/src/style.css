@@ -206,3 +206,23 @@
 #nav-item-blogs a::after {
     background-color: purple;
 }
+
+/* --------- */
+/*  Message  */
+/* --------- */
+
+.message {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid rgb(47, 51, 54);
+    margin: 1rem; 
+}
+
+.message h3 {
+    text-align: left;
+}
+
+.message-field {
+    background-color: white;
+    color: #181a27;
+}

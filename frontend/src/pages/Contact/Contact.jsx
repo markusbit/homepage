@@ -27,6 +27,7 @@ function Contact() {
                 toast.success(data, {
                     position: toast.POSITION.TOP_RIGHT,
                 });
+                event.target.reset();
             } else {
                 let errorMessage = '';
                 const contentType = response.headers.get('content-type');
@@ -43,7 +44,7 @@ function Contact() {
             toast.error(error.message, {
                 position: toast.POSITION.TOP_RIGHT,
             });
-        }
+        } 
     }
 
 

@@ -25,6 +25,7 @@ MessageModel.create({
 })*/
 
 // Find all documents
+/*
 MessageModel.find({ msg: 'New Message'})
     .then((docs) => {
         console.log("Found the following documents:");
@@ -33,5 +34,6 @@ MessageModel.find({ msg: 'New Message'})
     .catch((err) => {
         console.error(err);
     });
+*/
 
 module.exports = connect; 
