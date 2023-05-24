@@ -1,25 +1,23 @@
-# Stage 1: Build the React frontend
-FROM node:14.17.0-alpine as frontend-builder
+# Use the official Node.js 14 image as the base
+FROM node:14
 
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
+# Install frontend dependencies
 RUN npm install
 
-# Copy the rest of the frontend code
+# Copy the rest of the frontend files to the working directory
 COPY . .
 
-# Build the frontend
+# Build the frontend app
 RUN npm run build
 
-# Stage 2: Create the final frontend image
-FROM nginx:1.21.0-alpine
-
-# Copy the built frontend code from the frontend-builder stage
-COPY --from=frontend-builder /app/build /usr/share/nginx/html
-
-# Expose port 80
+# Expose port 80 for the frontend server
 EXPOSE 80
+
+# Start the frontend server
+CMD [ "npm", "start" ]

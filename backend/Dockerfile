@@ -1,20 +1,20 @@
-# Use the official Node.js 14.17.0-alpine image as the base
-FROM node:14.17.0-alpine
+# Use the official Node.js 14 image as the base
+FROM node:14
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
+# Install backend dependencies
 RUN npm install
 
-# Copy the rest of the backend code
+# Copy the rest of the backend files to the working directory
 COPY . .
 
-# Expose the backend port
-EXPOSE 3000
+# Expose port 80 for the backend server
+EXPOSE 5000
 
-# Set the entrypoint command
+# Start the backend server
 CMD [ "npm", "start" ]
