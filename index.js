@@ -13,14 +13,14 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors()); 
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // API Routes
 app.use('/api/auth', authRouter); 
 app.use('/api/contact', contactRouter); 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build/index.html'));
+  res.sendFile(path.join(__dirname, 'frontend/build/index.html'));
 });
 
 const port = process.env.PORT;
