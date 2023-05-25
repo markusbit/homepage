@@ -21,6 +21,10 @@ function Home(props) {
         setShowImageAnimation(true);
         setTimeout(() => {
             setShowTextAnimation(true);
+            setTimeout(() => {
+                sessionStorage.setItem('textAnimationPlayed', true);
+                setShowImageAnimation(false);
+            }, 1000); 
         }, 300);
     };
 
@@ -81,7 +85,7 @@ function Home(props) {
             <div className="row center-content">
                 <div className="mt-5 mx-auto p-5 homepage-text">
                     {
-                        (sessionStorage.getItem('animationPlayed') && !showTextAnimation) && (
+                        (sessionStorage.getItem('textAnimationPlayed') && !showTextAnimation) && (
                             <div>
                                 Welcome to my portfolio website! <br />
                                 My name is Markus Brandstetter, and I am a programmer.
@@ -101,7 +105,7 @@ function Home(props) {
                             </div>
                         )
                     }
-                    {showTextAnimation && (
+                    {(showTextAnimation) && (
                         <div className="fade-in">
                             Welcome to my portfolio website! <br />
                             My name is Markus Brandstetter, and I am a programmer.

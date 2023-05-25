@@ -213,7 +213,7 @@
 
 .message {
     display: inline-block;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid rgb(47, 51, 54);
     margin: 1rem; 
 }
@@ -223,6 +223,6 @@
 }
 
 .message-field {
-    background-color: white;
-    color: #181a27;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #12131d;
 }

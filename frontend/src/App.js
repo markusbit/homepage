@@ -60,6 +60,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("beforeunload", () => {
       sessionStorage.removeItem('animationPlayed')
+      sessionStorage.removeItem('textAnimationPlayed')
     });
   }, []);
 

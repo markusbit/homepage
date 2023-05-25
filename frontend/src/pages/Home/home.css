@@ -13,10 +13,6 @@ h1 {
     animation: forwards 1s fadein;
 }
 
-.fade-in-delayed {
-    animation: forwards 1s fadein;
-}
-
 @keyframes fadein {
     from {
         opacity: 0

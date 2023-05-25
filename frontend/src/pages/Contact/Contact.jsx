@@ -57,7 +57,7 @@ function Contact() {
                     <div className="col-md">
                         <label htmlFor="name">Name:</label>
                         <input type="text" id="name" name="name" required />
-                        <label htmlFor="tel">Telefon:</label>
+                        <label htmlFor="tel">Tel:</label>
                         <input type="tel" id="tel" name="tel" required />
                         <label htmlFor="email">Email:</label>
                         <input type="email" id="email" name="email" required />
