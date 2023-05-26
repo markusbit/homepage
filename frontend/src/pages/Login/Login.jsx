@@ -1,9 +1,12 @@
 import React from "react";
 
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -21,11 +24,12 @@ const Login = () => {
             });
 
             if (response.ok) {
-                const data = await response.text();
-                console.log(data);
-                toast.success(data, {
+                const data = await response.json();
+                toast.success('Login successful', {
                     position: toast.POSITION.TOP_RIGHT,
                 });
+                localStorage.setItem('user', data.token);
+                navigate(data.redirectUrl);
                 event.target.reset();
             } else {
                 let errorMessage = '';
@@ -43,10 +47,10 @@ const Login = () => {
             toast.error(error.message, {
                 position: toast.POSITION.TOP_RIGHT,
             });
-        } 
+        }
     }
 
-    return(
+    return (
         <div className="page-content">
             <ToastContainer />
             <h2>Login</h2>
@@ -62,7 +66,7 @@ const Login = () => {
                 </div>
             </form>
         </div>
-    ); 
+    );
 }
 
 export default Login; 

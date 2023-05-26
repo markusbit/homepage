@@ -10,10 +10,8 @@ const Dashboard = () => {
 
     const getAllMessages = async () => {
         const response = await fetch('/api/contact/messages');
-        console.log(response); 
         const data = await response.json();
         setMessages(data);
-        console.log(data);
     }
 
     return (
@@ -21,7 +19,7 @@ const Dashboard = () => {
             <h1 className="title">Messages</h1>
             <hr />
             {messages.map((message) => (
-                <Message message={message} />
+                <Message message={message} key={message._id} />
             ))}
         </div>
     );

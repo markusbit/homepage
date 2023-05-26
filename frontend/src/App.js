@@ -26,6 +26,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Login from './pages/Login/Login';
 import Contacts from './pages/Contacts/Contacts';
 import Messages from './pages/Messages/Messages';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export const ThemeContext = createContext(null);
 
@@ -41,12 +42,12 @@ function App() {
   };
 
   const generateRandomQuote = (data) => {
-    const quote = data[Math.round(Math.random() * data.length)]; 
+    const quote = data[Math.round(Math.random() * data.length)];
     if (quote.text.length > 100) {
-      console.log(quote); 
-      return generateRandomQuote(data); 
+      console.log(quote);
+      return generateRandomQuote(data);
     }
-    return quote; 
+    return quote;
   }
 
   useEffect(() => {
@@ -76,8 +77,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/messages" element={<Messages />} />
+        <Route path="/contacts" element={<ProtectedRoute element={<Contacts />} />} />
+        <Route path="/messages" element={<ProtectedRoute element={<Messages />} />} />
         <Route path="*" element={<NoPage />} />
       </Routes>
       <Footer quote={quote} />

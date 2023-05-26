@@ -27,7 +27,7 @@ authRouter.post('/login', (req, res) => {
 
             const validPassword = await bcrypt.compare(req.body.password, user.password);
             if (validPassword) {
-                return res.status(200).json({ 'token': generateAccessToken({user: user}) });
+                return res.status(200).json({ 'token': generateAccessToken({user: user}), 'redirectUrl': '/messages' });
             } else {
                 return res.status(401).send('Invalid Password');
             }
