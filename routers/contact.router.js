@@ -3,6 +3,7 @@ const rateLimit = require('express-rate-limit');
 const { body, validationResult } = require('express-validator');
 const MessageModel = require('../models/message.model');
 const ContactModel = require('../models/contact.model');
+const authenticate = require('../auth/authenticate');
 
 const contactRouter = express.Router();
 
@@ -17,18 +18,20 @@ contactRouter.get('/', (req, res) => {
     res.status(200).send('Contact API');
 });
 
-contactRouter.get('/messages', (req, res) => {
+contactRouter.get('/messages', authenticate, (req, res) => {
     MessageModel.find().then((docs) => {
-        console.log('Found this documents: ')
-        console.log(docs); 
         return res.status(200).json(docs); 
     }).catch((error) => {
         return res.status(400).send(error); 
     })
 })
 
-contactRouter.get('/contacts', (req, res) => {
-    
+contactRouter.get('/contacts', authenticate, (req, res) => {
+    ContactModel.find().then((docs) => {
+        return res.status(200).json(docs); 
+    }).catch((error) => {
+        return res.status(400).send(error); 
+    })
 })
 
 contactRouter.post('/new',

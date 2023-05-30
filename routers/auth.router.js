@@ -22,12 +22,9 @@ authRouter.post('/login', (req, res) => {
         'username': req.body.username,
     }).then(async (user) => {
         if (user) {
-            console.log(user.username);
-            console.log(user.password);
-
             const validPassword = await bcrypt.compare(req.body.password, user.password);
             if (validPassword) {
-                return res.status(200).json({ 'token': generateAccessToken({user: user}), 'redirectUrl': '/messages' });
+                return res.status(200).json({ 'token': generateAccessToken({ user: user }), 'redirectUrl': '/messages' });
             } else {
                 return res.status(401).send('Invalid Password');
             }
@@ -39,22 +36,39 @@ authRouter.post('/login', (req, res) => {
     })
 })
 
-authRouter.post("/register", async (req, res) => {
-        UserModel.findOne({username: req.body.username}).then((user) => {
-            if (user) {
-                res.status(400).send('User already exists.'); 
-                return; 
-            } 
-        })
+authRouter.get('/status', (req, res) => {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+    if (token == null) return res.sendStatus(401)
 
-        const encryptedPassword = await bcrypt.hash(req.body.password, 10); 
-        const user = {
-            username: req.body.username, 
-            password: encryptedPassword
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+        if (err) {
+            return res.sendStatus(403);
         }
-        await UserModel.create(user);
-        return res.send(generateAccessToken(user)); 
+    })
+    return res.sendStatus(200);
+})
+
+authRouter.post('/logout', (req, res) => {
+
+})
+
+authRouter.post("/register", async (req, res) => {
+    UserModel.findOne({ username: req.body.username }).then((user) => {
+        if (user) {
+            res.status(400).send('User already exists.');
+            return;
+        }
+    })
+
+    const encryptedPassword = await bcrypt.hash(req.body.password, 10);
+    const user = {
+        username: req.body.username,
+        password: encryptedPassword
     }
+    await UserModel.create(user);
+    return res.send(generateAccessToken(user));
+}
 )
 
 module.exports = authRouter; 

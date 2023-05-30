@@ -1,29 +1,46 @@
 import React, { useEffect, useState } from "react";
+import Contact from "../../components/Contact";
 
-const Dashboard = () => {
-    const [contacts, setContacts] = useState([]); 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+const Contacts = () => {
+    const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        getAllContacts(); 
-    }, []); 
+        getAllMessages();
+    }, []);
 
-    const getAllContacts = async () => {
-        const response = await fetch('/api/contact/contacts'); 
-        const data = await response.json(); 
-        setContacts(data); 
-        console.log(data); 
-    } 
-
-    return(
-        <div className="page-content">
-            Contacts
-            {
-                contacts.map((contact) => {
-                    
-                })
+    const getAllMessages = async () => {
+        const options = {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('user')}`
             }
+        }
+        const response = await fetch('/api/contact/contacts', options);
+        if (response.ok) {
+            const data = await response.json();
+            setMessages(data);
+        } else {
+            const data = await response.text();
+            toast.error(data, {
+                position: toast.POSITION.TOP_RIGHT,
+            });
+        }
+    }
+
+    return (
+        <div className="page-content">
+            <ToastContainer />
+            <h1 className="title">Contacts</h1>
+            <hr />
+            {messages.map((contact) => (
+                <Contact contact={contact} key={contact._id} />
+            ))}
         </div>
-    ); 
+    );
 }
 
-export default Dashboard; 
+export default Contacts; 

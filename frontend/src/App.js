@@ -27,6 +27,8 @@ import Login from './pages/Login/Login';
 import Contacts from './pages/Contacts/Contacts';
 import Messages from './pages/Messages/Messages';
 import ProtectedRoute from './components/ProtectedRoute';
+import Logout from './pages/Logout';
+import Auth from './components/Auth';
 
 export const ThemeContext = createContext(null);
 
@@ -71,12 +73,14 @@ function App() {
       <CustomParticles />
       <Navbar />
       <ScrollToTop />
+      <Auth />
       <Routes>
         <Route path="/" element={<Home loading={load} />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/contacts" element={<ProtectedRoute element={<Contacts />} />} />
         <Route path="/messages" element={<ProtectedRoute element={<Messages />} />} />
         <Route path="*" element={<NoPage />} />
