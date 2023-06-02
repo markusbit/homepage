@@ -1,12 +1,10 @@
 import React from "react";
-import CustomCard from "../../components/Card"; 
+import ProjectCard from "../../components/Card"; 
 
 function Projects() {
     return (
         <div className="page-content">
-            <CustomCard className="card" title="Schach" description="Schach programmed in JavaFX" demoLink="https://github.com">
-
-            </CustomCard>
+            <ProjectCard className="card" title="Farbenhaus Retz-Hollabrunn" description="Farbenhaus Retz-Hollabrunn" demoLink="http://farbenhaus-retz.at/" imgPath="http://farbenhaus-retz.at/img/farbenhaus-logo.jpg" />
         </div>
     )
 }

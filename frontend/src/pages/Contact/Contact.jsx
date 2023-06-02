@@ -4,6 +4,9 @@ import './contact.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+
 function Contact() {
 
     async function handleSubmit(event) {
@@ -65,7 +68,7 @@ function Contact() {
                     <div className="col-md">
                         <label htmlFor="message">Message:</label>
                         <textarea id="message" name="msg" rows="4" cols="40" required></textarea>
-                        <button type="submit" className="btn btn-primary submit">Submit</button>
+                        <button type="submit" className="btn btn-primary submit">Submit <FontAwesomeIcon icon={faPaperPlane}/></button>
                     </div>
                 </div>
             </form>

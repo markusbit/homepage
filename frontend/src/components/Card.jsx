@@ -2,10 +2,10 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-const CustomCard = (props) => {
+const ProjectCard = (props) => {
     return (
         <Card className="custom-card">
-            <Card.Img src={props.imgPath ? props.imgPath : 'https://via.placeholder.com/400'} alt="card-img" />
+            <Card.Img className="custom-card-image" src={props.imgPath ? props.imgPath : 'https://via.placeholder.com/400'} alt="card-img" />
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text style={{ textAlign: "center" }}>
@@ -15,7 +15,6 @@ const CustomCard = (props) => {
                 {"\n"}
 
                 <Button
-                    variant="primary"
                     href={props.demoLink}
                     target="_blank">
                     Demo
@@ -25,4 +24,4 @@ const CustomCard = (props) => {
     );
 }
 
-export default CustomCard; 
+export default ProjectCard; 

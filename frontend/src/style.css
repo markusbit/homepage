@@ -123,9 +123,35 @@
 /*  Card  */
 /* ------ */
 
+.custom-card-image {
+    padding: 25px;
+}
+
 .custom-card {
     max-width: 400px;
+    color: #12131d;
     margin: 0 auto;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s;
+}
+
+.custom-card:hover {
+    background-color: #12131d;
+    color: white;
+}
+
+.custom-card::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #12131d;
+    color: white;
 }
 
 /* -------- */
@@ -215,7 +241,7 @@
     display: inline-block;
     padding: 20px;
     border: 1px solid rgb(47, 51, 54);
-    margin: 1rem; 
+    margin: 1rem;
 }
 
 .message h3 {

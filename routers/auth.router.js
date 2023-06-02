@@ -44,9 +44,10 @@ authRouter.get('/status', (req, res) => {
     jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
         if (err) {
             return res.sendStatus(403);
+        } else {
+            return res.sendStatus(200);
         }
     })
-    return res.sendStatus(200);
 })
 
 authRouter.post('/logout', (req, res) => {
@@ -56,8 +57,7 @@ authRouter.post('/logout', (req, res) => {
 authRouter.post("/register", async (req, res) => {
     UserModel.findOne({ username: req.body.username }).then((user) => {
         if (user) {
-            res.status(400).send('User already exists.');
-            return;
+            return res.status(400).send('User already exists.');
         }
     })
 
