@@ -72,6 +72,7 @@ function Contact() {
                     </div>
                 </div>
             </form>
+            <p style={{fontSize: '0.9rem'}}>Please note that I will make every effort to reply as soon as possible. However, response times may vary.</p>
         </div>
     )
 }

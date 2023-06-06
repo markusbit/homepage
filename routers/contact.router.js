@@ -71,7 +71,7 @@ contactRouter.post('/new',
             const mailOptions = {
                 from: process.env.MAIL_USERNAME,
                 to: 'markusbrandstetter2006@gmail.com',
-                subject: 'New Message (markusb.ddns.net)',
+                subject: `New Message from ${req.body.name} (markusb.ddns.net)`,
                 text: `Message:\nFrom: ${req.body.name}\nTel: ${req.body.tel}\nEmail: ${req.body.email}\n\n${req.body.msg}`
             };
 

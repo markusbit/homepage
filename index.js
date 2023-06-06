@@ -5,23 +5,6 @@ const connect = require("./configs/database");
 const path = require("path"); 
 connect(); 
 
-const transporter = require('./configs/mail'); 
-
-const mailOptions = {
-  from: process.env.MAIL_USERNAME,
-  to: 'markusbrandstetter2006@gmail.com',
-  subject: 'New Message (markusb.ddns.net)',
-  text: `Test`
-};
-
-transporter.sendMail(mailOptions, (error, info) => {
-  if (error) {
-      console.error('Error:', error);
-  } else {
-      console.log('Email sent:', info.response);
-  }
-});
-
 const authRouter = require('./routers/auth.router'); 
 const contactRouter = require('./routers/contact.router'); 
 

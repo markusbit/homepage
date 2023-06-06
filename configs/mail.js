@@ -1,15 +1,10 @@
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.protonmail.ch',
-    port: 587,
-    secure: false, 
+    service: 'hotmail',
     auth: {
-        user: process.env.MAIL_USERNAME,
-        pass: process.env.MAIL_PASSWORD
-    },
-    tls: {
-        ciphers: 'SSLv3'
+        user: process.env.MAIL_USERNAME, 
+        pass: process.env.MAIL_PASSWORD 
     }
 });
 
